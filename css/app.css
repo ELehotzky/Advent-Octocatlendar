@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    font-size: 2em;
 }
 
 *,
@@ -18,7 +19,7 @@ body {
 
 body {
     background: #ffffff url('../img/snow.jpg'); /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
+    font-family: 'Mountains of Christmas', cursive;
 }
 
 .container {
@@ -26,11 +27,15 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-family: 'Mountains of Christmas', cursive;
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-weight: 600;
+}
+
+img {
+    border-radius: 10px;
 }
 
 /*
@@ -43,6 +48,7 @@ h1 {
     background: #ffffff url('../img/background-christmas-tree.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    align: center;
     width: 60%;
     height: 100%;
     padding: 15px;
@@ -56,35 +62,24 @@ h1 {
 }
 
 .deck .card {
+    border-color: white;
+    border-width: 10px;
     opacity: 0;
     height: 125px;
     width: 125px;
-    background: #2e3d49;
-    font-size: 0;
-    color: #ffffff;
     border-radius: 8px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-}
-
-.deck .card.open {
-    transform: rotateY(0);
-    background: #02b3e4;
-    cursor: default;
 }
 
 .deck .card.show {
     opacity: 1;
-    font-size: 33px;
 }
 
 .deck .card.match {
     cursor: default;
-    background: #02ccba;
-    font-size: 33px;
 }
 
 /*
@@ -92,38 +87,15 @@ h1 {
  */
 
 .score-panel {
-    text-align: left;
-    width: 345px;
+    text-align: center;
+    width: 30%;
     margin-bottom: 10px;
 }
 
-.score-panel .stars {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 0;
-}
-
-.score-panel .stars li {
-    list-style: none;
-    display: inline-block;
-}
-
-.score-panel .clock {
-    margin: 10px;
-    padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 150px;
-}
-
 .score-panel .restart {
-    float: right;
     cursor: pointer;
+    
 }
-
-/*
-    Styles for winner/game complete banner
-*/
 
 .winner-flag {
     position: absolute;
@@ -153,4 +125,3 @@ h1 {
 .close {
     display: none;
 }
-
