@@ -1,7 +1,6 @@
 let openCards = [];
-let time = 0;
 let clockStart = false;
-const clock = document.querySelector(".clock");
+const date = document.querySelector(".date");
 let gameClock;
 const deck = document.querySelector(".deck");
 const restart = document.getElementsByClassName("fa-repeat")[0];
@@ -52,15 +51,8 @@ startGame();
 
 function dealCards() {
 	const allCards = document.querySelectorAll(".card");
-	moves = 0;
 	allCards.forEach(function(card) {
 		card.addEventListener("click", () => {
-
-			// start the clock
-			if (!clockStart) {
-				timer();
-				clockStart = true;
-		}
 			// only allows two cards to be opened at a time
 			if (openCards.length < 2) {
 				if (!card.classList.contains("open") && !card.classList.contains("show") && !card.classList.contains("match")) {
@@ -88,24 +80,15 @@ function dealCards() {
 	});
 }
 
-function timer() {
-	time = 0
-}
-
 // show current time
 function showTime() {
 	let minutes = Math.floor(time / 60);
 	let seconds = time % 60;
 	if (seconds < 10) {
-		clock.innerHTML = `${minutes}:0${seconds}`;
+		date.innerHTML = `${minutes}:0${seconds}`;
 	} else {
-		clock.innerHTML = `${minutes}:${seconds}`;
+		date.innerHTML = `${minutes}:${seconds}`;
 	}
-}
-
-function stopTime() {
-	clockStart = false;
-	clearInterval(gameClock);
 }
 
 //restart button restarts game
