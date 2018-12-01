@@ -185,15 +185,6 @@ function showDate() {
 		${d.getFullYear()}</div>`;
 }
 
-//restart button restarts game
-restart.addEventListener("click", () => {
-	stopTime();
-	addCalendar();
-	removeBanner();
-})
-
-
-
 // ___________FALLING SNOW OVERLAY________
 //  * @license
 //  * DHTML Snowstorm! JavaScript-based snow for web pages
