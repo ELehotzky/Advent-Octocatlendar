@@ -219,8 +219,8 @@ function dealCards() {
 // show current date
 function showDate() {
 	const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-	date.innerHTML = `Today's Date: ${months[d.getMonth()]} ${d.getDate()},
-		${d.getFullYear()}`;
+	date.innerHTML = `Today's Date: <div>${months[d.getMonth()]} ${d.getDate()},
+		${d.getFullYear()}</div>`;
 }
 
 //restart button restarts game
