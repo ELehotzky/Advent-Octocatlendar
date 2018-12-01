@@ -1,6 +1,7 @@
 let openCards = [];
 let clockStart = false;
 const date = document.querySelector(".date");
+let d = new Date();
 let gameClock;
 const deck = document.querySelector(".deck");
 const restart = document.getElementsByClassName("fa-repeat")[0];
@@ -40,10 +41,9 @@ function startGame() {
 	let cardHTML = cards.map(function(card) {
 		return makeCard(card);
 	});
-	time = 0;
-	showTime();
 	deck.innerHTML = cardHTML.join("");
 	dealCards();
+	showDate();
 }
 
 startGame();
@@ -80,15 +80,11 @@ function dealCards() {
 	});
 }
 
-// show current time
-function showTime() {
-	let minutes = Math.floor(time / 60);
-	let seconds = time % 60;
-	if (seconds < 10) {
-		date.innerHTML = `${minutes}:0${seconds}`;
-	} else {
-		date.innerHTML = `${minutes}:${seconds}`;
-	}
+// show current date
+function showDate() {
+	const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	date.innerHTML = `Today's Date: ${months[d.getMonth()]} ${d.getDate()},
+		${d.getFullYear()}`;
 }
 
 //restart button restarts game
@@ -101,16 +97,11 @@ restart.addEventListener("click", () => {
 function winner() {
 	if (matchedPairs == 8) {
 		finalBanner();
-		stopTime();
-		matchedPairs = 0;
 	}
 }
 
 function finalBanner() {
 	const finalTime = document.getElementsByClassName("final-time")[0];
-	const finalMoves = document.getElementsByClassName("final-moves")[0];
-	const finalStars = document.getElementsByClassName("final-stars")[0];
-	finalTime.innerHTML = `Your Time: ${clock.innerHTML}`
 	addBanner();
 }
 
@@ -132,7 +123,6 @@ closeBtn.addEventListener("click", () => {
 
 //restart button on banner restarts game
 restartBtn.addEventListener("click", () => {
-	stopTime();
 	startGame();
 	removeBanner();
 })
