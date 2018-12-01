@@ -135,28 +135,11 @@ function newDeck(catCards) {
 
 const catDeck = newDeck(catCards)
 
-// original version
-// function makeCard(card) {
-// 	return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`;
-// }
-
 function makeCard(card) {
 	return `<li class="card" data-card="${card.day()}"><img src="${card.relLink}" height="125" width="125" alt="${card.title()}" title="by ${card.creator}"></li>`;
 }
 
-/*
- * Create a list that holds all of your cards
- */
-
-
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
-
-function startGame() {
+function addCalendar() {
 	removeBanner();
 	const deck = document.querySelector(".deck");
 	let cardHTML = catDeck.map(function(card) {
@@ -167,17 +150,16 @@ function startGame() {
 	showDate();
 }
 
-startGame();
+addCalendar();
 
 
 function dealCards() {
 	const allCards = document.querySelectorAll(".card");
 	allCards.forEach(function(card) {
+    showNum(card)
 		card.addEventListener("click", () => {
-			// only allows two cards to be opened at a time
-			if (openCards.length < 2) {
-				if (!card.classList.contains("open") && !card.classList.contains("show") && !card.classList.contains("match")) {
-				openCards.push(card);
+				if (!card.classList.contains("show")) {
+          (console.log("clicked"))
 				card.classList.add("show");
 				if (openCards.length == 2) {
 					// check for match, if matches leave shown
@@ -185,14 +167,16 @@ function dealCards() {
 						openCards[0].classList.add("show");
 						openCards[1].classList.add("show");
 						openCards = [];
-						winner();
-					} else {
-						openCards = []
-					}
+				
+					} 
 				}
-			}}
+			}
 		});
 	});
+}
+
+function showNum(card) {
+  card.innerHTML = `<p>Image1</p>`
 }
 
 // show current date
@@ -205,7 +189,7 @@ function showDate() {
 //restart button restarts game
 restart.addEventListener("click", () => {
 	stopTime();
-	startGame();
+	addCalendar();
 	removeBanner();
 })
 
@@ -226,26 +210,12 @@ function removeBanner() {
 	banner.classList.add("close");
 }
 
-function addBanner() {
-	const banner = document.getElementsByClassName("winner-flag")[0];
-	banner.classList.remove("close");
-}
+
 
 
 closeBtn.addEventListener("click", () => {
 	removeBanner();
 })
-
-//restart button on banner restarts game
-restartBtn.addEventListener("click", () => {
-	startGame();
-	removeBanner();
-})
-
-
-
-
-
 
 
 
