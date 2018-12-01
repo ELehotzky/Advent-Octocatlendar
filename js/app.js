@@ -150,8 +150,13 @@ function newDeck(catCards) {
 
 const catDeck = newDeck(catCards)
 
+// original version
+// function makeCard(card) {
+// 	return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`;
+// }
+
 function makeCard(card) {
-	return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`;
+	return `<li class="card" data-card="${card.day()}"><img src="${card.relLink}" height="125" width="125" alt="${card.title()}" title="by ${card.creator}"></li>`;
 }
 
 /*
@@ -169,7 +174,7 @@ function makeCard(card) {
 function startGame() {
 	removeBanner();
 	const deck = document.querySelector(".deck");
-	let cardHTML = cards.map(function(card) {
+	let cardHTML = catDeck.map(function(card) {
 		return makeCard(card);
 	});
 	deck.innerHTML = cardHTML.join("");
