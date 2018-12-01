@@ -18,7 +18,8 @@ let card_array = [
 	"fa-tree",
 	"fa-snowflake",
 	"fa-air-freshener",
-	"fa-tree"
+	"fa-tree",
+	"fa-tree",
 ];
 const cards = card_array.concat(card_array)
 
@@ -34,15 +35,15 @@ const catCards = [
 	},
 	{
 		creator: "Cameron McEfee",
-		relLink: 'img/03_jenktocat.jpg'
+		relLink: 'img/03_scottocat.jpg'
 	},
 	{
 		creator: "Cameron McEfee",
-		relLink: 'img/04_repo.png'
+		relLink: 'img/04_jenktocat.jpg'
 	},
 	{
 		creator: "Cameron McEfee",
-		relLink: 'img/05_scottocat.jpg'
+		relLink: 'img/05_repo.png'
 	},
 	{
 		creator: "James Kang",
@@ -149,8 +150,13 @@ function newDeck(catCards) {
 
 const catDeck = newDeck(catCards)
 
+// original version
+// function makeCard(card) {
+// 	return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`;
+// }
+
 function makeCard(card) {
-	return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`;
+	return `<li class="card" data-card="${card.day()}"><img src="${card.relLink}" height="125" width="125" alt="${card.title()}" title="by ${card.creator}"></li>`;
 }
 
 /*
@@ -168,7 +174,7 @@ function makeCard(card) {
 function startGame() {
 	removeBanner();
 	const deck = document.querySelector(".deck");
-	let cardHTML = cards.map(function(card) {
+	let cardHTML = catDeck.map(function(card) {
 		return makeCard(card);
 	});
 	deck.innerHTML = cardHTML.join("");
@@ -213,8 +219,8 @@ function dealCards() {
 // show current date
 function showDate() {
 	const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-	date.innerHTML = `Today's Date: ${months[d.getMonth()]} ${d.getDate()},
-		${d.getFullYear()}`;
+	date.innerHTML = `Today's Date: <div>${months[d.getMonth()]} ${d.getDate()},
+		${d.getFullYear()}</div>`;
 }
 
 //restart button restarts game
