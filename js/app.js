@@ -17,6 +17,7 @@ let card_array = [
 	"fa-star-o",
 	"fa-tree",
 	"fa-snowflake",
+	"fa-air-freshener",
 	"fa-tree"
 ];
 const cards = card_array.concat(card_array)
