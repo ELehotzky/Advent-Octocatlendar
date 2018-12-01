@@ -18,7 +18,8 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/snow.jpg'); /* Background pattern from Subtle Patterns */
+    background: rgb(165, 202, 245)  
+    url('../img/christmas1_5.mp4'); 
     font-family: 'Mountains of Christmas', cursive;
 }
 
@@ -94,7 +95,6 @@ img {
 
 .score-panel .restart {
     cursor: pointer;
-    
 }
 
 .winner-flag {
