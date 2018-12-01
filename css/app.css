@@ -74,11 +74,6 @@ img {
     align-items: center;
 }
 
-.deck .card.open {
-    transform: rotateY(0);
-    cursor: default;
-}
-
 .deck .card.show {
     opacity: 1;
 }
