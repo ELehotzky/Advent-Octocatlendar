@@ -40,10 +40,9 @@ function startGame() {
 	let cardHTML = cards.map(function(card) {
 		return makeCard(card);
 	});
-	time = 0;
-	showTime();
 	deck.innerHTML = cardHTML.join("");
 	dealCards();
+	showDate();
 }
 
 startGame();
@@ -81,7 +80,7 @@ function dealCards() {
 }
 
 // show current time
-function showTime() {
+function showDate() {
 	let minutes = Math.floor(time / 60);
 	let seconds = time % 60;
 	if (seconds < 10) {
@@ -108,9 +107,6 @@ function winner() {
 
 function finalBanner() {
 	const finalTime = document.getElementsByClassName("final-time")[0];
-	const finalMoves = document.getElementsByClassName("final-moves")[0];
-	const finalStars = document.getElementsByClassName("final-stars")[0];
-	finalTime.innerHTML = `Your Time: ${clock.innerHTML}`
 	addBanner();
 }
 
