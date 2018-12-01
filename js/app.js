@@ -1,6 +1,7 @@
 let openCards = [];
 let clockStart = false;
 const date = document.querySelector(".date");
+let d = new Date();
 let gameClock;
 const deck = document.querySelector(".deck");
 const restart = document.getElementsByClassName("fa-repeat")[0];
@@ -79,15 +80,11 @@ function dealCards() {
 	});
 }
 
-// show current time
+// show current date
 function showDate() {
-	let minutes = Math.floor(time / 60);
-	let seconds = time % 60;
-	if (seconds < 10) {
-		date.innerHTML = `${minutes}:0${seconds}`;
-	} else {
-		date.innerHTML = `${minutes}:${seconds}`;
-	}
+	const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	date.innerHTML = `Today's Date: ${months[d.getMonth()]} ${d.getDate()},
+		${d.getFullYear()}`;
 }
 
 //restart button restarts game
@@ -100,8 +97,6 @@ restart.addEventListener("click", () => {
 function winner() {
 	if (matchedPairs == 8) {
 		finalBanner();
-		stopTime();
-		matchedPairs = 0;
 	}
 }
 
@@ -128,7 +123,6 @@ closeBtn.addEventListener("click", () => {
 
 //restart button on banner restarts game
 restartBtn.addEventListener("click", () => {
-	stopTime();
 	startGame();
 	removeBanner();
 })
