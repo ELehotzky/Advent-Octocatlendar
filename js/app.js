@@ -1,12 +1,7 @@
-let openCards = [];
-let clockStart = false;
 const date = document.querySelector(".date");
 let d = new Date();
 let gameClock;
 const deck = document.querySelector(".deck");
-const restart = document.getElementsByClassName("fa-repeat")[0];
-const closeBtn = document.getElementsByClassName("close-banner")[0];
-const restartBtn = document.getElementsByClassName("restart")[1];
 
 // octocat pics go here
 const catCards = [
@@ -126,17 +121,27 @@ function OctoCard(creator, relLink) {
 
 function newDeck(catCards) {
 	let newDeck = []
-	catCards.forEach((card) => {
-		newCard = new OctoCard(card.creator, card.relLink)
+	catCards.forEach((cat) => {
+		newCard = new OctoCard(cat.creator, cat.relLink)
 		newDeck.push(newCard)
+    addNums(cat);
 	})
-	return newDeck
+	return newDeck;
+
+}
+
+function addNums(cat) {
+  console.log("day number")
+  cat.innerText = "hello"
 }
 
 const catDeck = newDeck(catCards)
 
 function makeCard(card) {
-	return `<li class="card" data-card="${card.day()}"><img src="${card.relLink}" height="125" width="125" alt="${card.title()}" title="by ${card.creator}"></li>`;
+	return `<li class="card" data-card="${card.day()}">
+            <img src="${card.relLink}" height="125" width="125" 
+            alt="${card.title()}" title="by ${card.creator}">
+          </li>`;
 }
 
 function addCalendar() {
@@ -159,19 +164,17 @@ function addCats() {
 		cat.addEventListener("click", () => {
 				if (!cat.classList.contains("show")) {
           (console.log("clicked"))
-				cat.classList.add("show");
-				if (openCards.length == 2) {
-					// check for match, if matches leave shown
-					if (openCards[0].dataset.cat == openCards[1].dataset.cat) {
-						openCards[0].classList.add("show");
-						openCards[1].classList.add("show");
-						openCards = [];
+				  cat.classList.add("show");
+				// if (openCards.length == 2) {
+				// 	// check for match, if matches leave shown
+				// 	if (openCards[0].dataset.cat == openCards[1].dataset.cat) {
+				// 		openCards[0].classList.add("show");
+				// 		openCards[1].classList.add("show");
+						// openCards = [];
 				
 					} 
-				}
-			}
-		});
-	});
+				})
+			})
 }
 
 // function showNum(card) {
