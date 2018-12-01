@@ -155,7 +155,7 @@ const catDeck = newDeck(catCards)
 // }
 
 function makeCard(card) {
-	return `<li class="card" data-card="${card.day}"><img src="${card.relLink}" height="125" width="125" alt="${card.title()}" title="by ${card.creator}"></li>`;
+	return `<li class="card" data-card="${card.day()}"><img src="${card.relLink}" height="125" width="125" alt="${card.title()}" title="by ${card.creator}"></li>`;
 }
 
 /*
