@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    font-size: 2em;
 }
 
 *,
@@ -18,7 +19,7 @@ body {
 
 body {
     background: #ffffff url('../img/snow.jpg'); /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
+    font-family: 'Mountains of Christmas', cursive;
 }
 
 .container {
@@ -26,11 +27,11 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-family: 'Mountains of Christmas', cursive;
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-weight: 600;
 }
 
 /*
@@ -90,8 +91,8 @@ h1 {
  */
 
 .score-panel {
-    text-align: left;
-    width: 345px;
+    text-align: center;
+    width: 30%;
     margin-bottom: 10px;
 }
 
