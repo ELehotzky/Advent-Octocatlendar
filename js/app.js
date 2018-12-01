@@ -12,19 +12,6 @@ const moveCounter = document.querySelector(".moves");
 const restart = document.getElementsByClassName("fa-repeat")[0];
 const closeBtn = document.getElementsByClassName("close-banner")[0];
 const restartBtn = document.getElementsByClassName("restart")[1];
-let card_array = [
-	"fa-diamond",
-	"fa-heart",
-	"fa-paw",
-	"fa-bolt",
-	"fa-bug",
-	"fa-cloud",
-	"fa-star-o",
-	"fa-tree"
-];
-card_array = [...card_array] 
-const cards = card_array.concat(card_array)
-let matchedPairs = 0;
 
 function makeCard(card) {
 	return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`;
