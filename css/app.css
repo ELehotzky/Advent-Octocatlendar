@@ -18,7 +18,8 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/snow.jpg'); /* Background pattern from Subtle Patterns */
+    background: rgb(165, 202, 245)  
+    url('../img/christmas1_5.mp4'); 
     font-family: 'Mountains of Christmas', cursive;
 }
 
@@ -97,28 +98,8 @@ img {
     margin-bottom: 10px;
 }
 
-/* .score-panel .stars {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 0;
-} */
-
-/* .score-panel .stars li {
-    list-style: none;
-    display: inline-block;
-} */
-
-/* .score-panel .clock {
-    margin: 10px;
-    padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 150px;
-} */
-
 .score-panel .restart {
     cursor: pointer;
-    
 }
 
 /*
@@ -153,17 +134,3 @@ img {
 .close {
     display: none;
 }
-
-
-/*
-            <div class="winner-flag">
-                <div class="winner-banner">
-                    <span class="close-banner">X</span>
-                    <div class="banner content">
-                        <h2 class="winner-header">Congratulations! You Won!</h2>
-                        <h4 class="specs">Your Time: </h4>
-                        <h4 class="specs">Total Moves: </h4>
-                        <h4 class="specs">Star Score: </h4>
-                    </div>
-                </div>
-            </div>*/
