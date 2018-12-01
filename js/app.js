@@ -35,15 +35,15 @@ const catCards = [
 	},
 	{
 		creator: "Cameron McEfee",
-		relLink: 'img/03_jenktocat.jpg'
+		relLink: 'img/03_scottocat.jpg'
 	},
 	{
 		creator: "Cameron McEfee",
-		relLink: 'img/04_repo.png'
+		relLink: 'img/04_jenktocat.jpg'
 	},
 	{
 		creator: "Cameron McEfee",
-		relLink: 'img/05_scottocat.jpg'
+		relLink: 'img/05_repo.png'
 	},
 	{
 		creator: "James Kang",
