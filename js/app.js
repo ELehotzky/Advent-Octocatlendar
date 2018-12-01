@@ -3,10 +3,6 @@ let time = 0;
 let clockStart = false;
 const clock = document.querySelector(".clock");
 let gameClock;
-let totalStars = 3;
-const stars = document.querySelector(".stars");
-let star1 = stars.firstElementChild;
-let star2 = stars.lastElementChild;
 const deck = document.querySelector(".deck");
 const moveCounter = document.querySelector(".moves");
 const restart = document.getElementsByClassName("fa-repeat")[0];
@@ -45,14 +41,11 @@ function makeCard(card) {
 function startGame() {
 	removeBanner();
 	const deck = document.querySelector(".deck");
-	let cardHTML = shuffle(cards).map(function(card) {
+	let cardHTML = cards.map(function(card) {
 		return makeCard(card);
 	});
 	let moves = 0;
 	time = 0;
-	totalStars = 3;
-	star1.style.display = "";
-	star2.style.display = "";
 	moveCounter.innerText = moves;
 	showTime();
 	deck.innerHTML = cardHTML.join("");
@@ -61,18 +54,6 @@ function startGame() {
 
 startGame();
 
-// Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-    return array;
-}
 
 function dealCards() {
 	const allCards = document.querySelectorAll(".card");
@@ -107,8 +88,6 @@ function dealCards() {
 							openCards = [];
 						}, 1000);
 					}
-					moves += 1;
-					moveCounter.innerText = moves;
 					checkScore();
 				}
 			}}
@@ -140,23 +119,6 @@ function stopTime() {
 	clearInterval(gameClock);
 }
 
-// remove stars if score exceeds certain number of moves
-function checkScore() {
-	let numMoves = parseInt(moveCounter.innerText);
-	if (numMoves > 14 && numMoves < 25) {
-		totalStars = 2;
-		star1.style.display = "none";
-	} else if (numMoves >= 25) {
-		totalStars = 1;
-		star1.style.display = "none";
-		star2.style.display = "none";
-	} else {
-		totalStars = 3;
-		star1.style.display = "";
-		star2.style.display = "";
-	}
-}
-
 //restart button restarts game
 restart.addEventListener("click", () => {
 	stopTime();
@@ -177,8 +139,6 @@ function finalBanner() {
 	const finalMoves = document.getElementsByClassName("final-moves")[0];
 	const finalStars = document.getElementsByClassName("final-stars")[0];
 	finalTime.innerHTML = `Your Time: ${clock.innerHTML}`
-	finalMoves.innerHTML = `Total Moves: ${moves + 1}`
-	finalStars.innerHTML = `Star Score: ${totalStars}`
 	addBanner();
 }
 
