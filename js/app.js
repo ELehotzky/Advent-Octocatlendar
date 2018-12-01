@@ -145,24 +145,24 @@ function addCalendar() {
 		return makeCard(card);
 	});
 	deck.innerHTML = cardHTML.join("");
-	dealCards();
+	addCats();
 	showDate();
 }
 
 addCalendar();
 
 
-function dealCards() {
-	const allCards = document.querySelectorAll(".card");
-	allCards.forEach(function(card) {
-    showNum(card)
-		card.addEventListener("click", () => {
-				if (!card.classList.contains("show")) {
+function addCats() {
+	const allCats = document.querySelectorAll(".card");
+	allCats.forEach(function(cat) {
+    // showNum(card)
+		cat.addEventListener("click", () => {
+				if (!cat.classList.contains("show")) {
           (console.log("clicked"))
-				card.classList.add("show");
+				cat.classList.add("show");
 				if (openCards.length == 2) {
 					// check for match, if matches leave shown
-					if (openCards[0].dataset.card == openCards[1].dataset.card) {
+					if (openCards[0].dataset.cat == openCards[1].dataset.cat) {
 						openCards[0].classList.add("show");
 						openCards[1].classList.add("show");
 						openCards = [];
@@ -174,9 +174,9 @@ function dealCards() {
 	});
 }
 
-function showNum(card) {
-  card.innerHTML = `<p>Image1</p>`
-}
+// function showNum(card) {
+//   card.innerHTML = `<p>Image1</p>`
+// }
 
 // show current date
 function showDate() {
