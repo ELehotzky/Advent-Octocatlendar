@@ -7,6 +7,19 @@ const deck = document.querySelector(".deck");
 const restart = document.getElementsByClassName("fa-repeat")[0];
 const closeBtn = document.getElementsByClassName("close-banner")[0];
 const restartBtn = document.getElementsByClassName("restart")[1];
+let card_array = [
+	"fa-diamond",
+	"fa-heart",
+	"fa-paw",
+	"fa-bolt",
+	"fa-bug",
+	"fa-cloud",
+	"fa-star-o",
+	"fa-tree",
+	"fa-snowflake",
+	"fa-tree"
+];
+const cards = card_array.concat(card_array)
 
 const catDeck = newDeck(catCards)
 
