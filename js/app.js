@@ -8,6 +8,8 @@ const restart = document.getElementsByClassName("fa-repeat")[0];
 const closeBtn = document.getElementsByClassName("close-banner")[0];
 const restartBtn = document.getElementsByClassName("restart")[1];
 
+const dayNum = d.getDate() //change this for demo
+
 // octocat pics go here
 const catCards = [
 	{
@@ -156,22 +158,24 @@ addCalendar();
 function dealCards() {
 	const allCards = document.querySelectorAll(".card");
 	allCards.forEach(function(card) {
-    showNum(card)
-		card.addEventListener("click", () => {
-				if (!card.classList.contains("show")) {
-          (console.log("clicked"))
-				card.classList.add("show");
-				if (openCards.length == 2) {
-					// check for match, if matches leave shown
-					if (openCards[0].dataset.card == openCards[1].dataset.card) {
-						openCards[0].classList.add("show");
-						openCards[1].classList.add("show");
-						openCards = [];
-				
-					} 
+	// showNum(card)
+		if (dayNum >= card.dataset.card) {
+			card.addEventListener("click", () => {
+					if (!card.classList.contains("show")) {
+			(console.log("clicked"))
+					card.classList.add("show");
+					// if (openCards.length == 2) {
+					// 	// check for match, if matches leave shown
+					// 	if (openCards[0].dataset.card == openCards[1].dataset.card) {
+					// 		openCards[0].classList.add("show");
+					// 		openCards[1].classList.add("show");
+					// 		openCards = [];
+					
+					// 	} 
+					// }
 				}
-			}
-		});
+			});
+		}	
 	});
 }
 
