@@ -154,16 +154,3 @@ h1 {
     display: none;
 }
 
-
-/*
-            <div class="winner-flag">
-                <div class="winner-banner">
-                    <span class="close-banner">X</span>
-                    <div class="banner content">
-                        <h2 class="winner-header">Congratulations! You Won!</h2>
-                        <h4 class="specs">Your Time: </h4>
-                        <h4 class="specs">Total Moves: </h4>
-                        <h4 class="specs">Star Score: </h4>
-                    </div>
-                </div>
-            </div>*/
