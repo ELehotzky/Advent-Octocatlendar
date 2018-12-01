@@ -140,7 +140,6 @@ function makeCard(card) {
 }
 
 function addCalendar() {
-	removeBanner();
 	const deck = document.querySelector(".deck");
 	let cardHTML = catDeck.map(function(card) {
 		return makeCard(card);
@@ -192,31 +191,6 @@ restart.addEventListener("click", () => {
 	addCalendar();
 	removeBanner();
 })
-
-function winner() {
-	if (matchedPairs == 8) {
-		finalBanner();
-	}
-}
-
-function finalBanner() {
-	const finalTime = document.getElementsByClassName("final-time")[0];
-	addBanner();
-}
-
-// closes the winner's banner
-function removeBanner() {
-	const banner = document.getElementsByClassName("winner-flag")[0];
-	banner.classList.add("close");
-}
-
-
-
-
-closeBtn.addEventListener("click", () => {
-	removeBanner();
-})
-
 
 
 
