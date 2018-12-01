@@ -4,7 +4,6 @@ let clockStart = false;
 const clock = document.querySelector(".clock");
 let gameClock;
 const deck = document.querySelector(".deck");
-const moveCounter = document.querySelector(".moves");
 const restart = document.getElementsByClassName("fa-repeat")[0];
 const closeBtn = document.getElementsByClassName("close-banner")[0];
 const restartBtn = document.getElementsByClassName("restart")[1];
@@ -18,9 +17,7 @@ let card_array = [
 	"fa-star-o",
 	"fa-tree"
 ];
-card_array = [...card_array] 
 const cards = card_array.concat(card_array)
-let matchedPairs = 0;
 
 function makeCard(card) {
 	return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`;
@@ -44,9 +41,7 @@ function startGame() {
 	let cardHTML = cards.map(function(card) {
 		return makeCard(card);
 	});
-	let moves = 0;
 	time = 0;
-	moveCounter.innerText = moves;
 	showTime();
 	deck.innerHTML = cardHTML.join("");
 	dealCards();
@@ -77,7 +72,6 @@ function dealCards() {
 						openCards[0].classList.add("open", "show", "match");
 						openCards[1].classList.add("open", "show", "match");
 						openCards = [];
-						matchedPairs += 1;
 						winner();
 					} else {
 						// if cards don't match, flip cards back over
@@ -88,7 +82,6 @@ function dealCards() {
 							openCards = [];
 						}, 1000);
 					}
-					checkScore();
 				}
 			}}
 		});
@@ -96,11 +89,7 @@ function dealCards() {
 }
 
 function timer() {
-	time = 0;
-	gameClock = setInterval(() => {
-		time++;
-		showTime();
-	}, 1000)
+	time = 0
 }
 
 // show current time
@@ -157,8 +146,6 @@ function addBanner() {
 closeBtn.addEventListener("click", () => {
 	removeBanner();
 })
-
-
 
 //restart button on banner restarts game
 restartBtn.addEventListener("click", () => {
