@@ -44,6 +44,7 @@ h1 {
     background: #ffffff url('../img/background-christmas-tree.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    align: center;
     width: 60%;
     height: 100%;
     padding: 15px;
@@ -98,28 +99,28 @@ h1 {
     margin-bottom: 10px;
 }
 
-.score-panel .stars {
+/* .score-panel .stars {
     margin: 0;
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
-}
+} */
 
-.score-panel .stars li {
+/* .score-panel .stars li {
     list-style: none;
     display: inline-block;
-}
+} */
 
-.score-panel .clock {
+/* .score-panel .clock {
     margin: 10px;
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 150px;
-}
+} */
 
 .score-panel .restart {
-    float: right;
     cursor: pointer;
+    
 }
 
 /*
