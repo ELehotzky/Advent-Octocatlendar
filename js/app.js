@@ -1,12 +1,7 @@
-let openCards = [];
-let clockStart = false;
 const date = document.querySelector(".date");
 let d = new Date();
 let gameClock;
 const deck = document.querySelector(".deck");
-const restart = document.getElementsByClassName("fa-repeat")[0];
-const closeBtn = document.getElementsByClassName("close-banner")[0];
-const restartBtn = document.getElementsByClassName("restart")[1];
 
 const dayNum = d.getDate() //change this for demo
 
@@ -128,59 +123,52 @@ function OctoCard(creator, relLink) {
 
 function newDeck(catCards) {
 	let newDeck = []
-	catCards.forEach((card) => {
-		newCard = new OctoCard(card.creator, card.relLink)
+	catCards.forEach((cat) => {
+		newCard = new OctoCard(cat.creator, cat.relLink)
 		newDeck.push(newCard)
+    addNums(cat);
 	})
-	return newDeck
+	return newDeck;
+}
+
+function addNums(cat) {
+  console.log("day number")
+  cat.innerHTML = "hello"
 }
 
 const catDeck = newDeck(catCards)
 
 function makeCard(card) {
-	return `<li class="card" data-card="${card.day()}"><img src="${card.relLink}" height="125" width="125" alt="${card.title()}" title="by ${card.creator}"></li>`;
+	return `<li class="card" data-card="${card.day()}">
+            <img src="${card.relLink}" height="125" width="125" 
+            alt="${card.title()}" title="by ${card.creator}">
+          </li>`;
 }
 
 function addCalendar() {
-	removeBanner();
 	const deck = document.querySelector(".deck");
 	let cardHTML = catDeck.map(function(card) {
 		return makeCard(card);
 	});
 	deck.innerHTML = cardHTML.join("");
-	dealCards();
+	addCats();
 	showDate();
 }
 
 addCalendar();
 
-
-function dealCards() {
-	const allCards = document.querySelectorAll(".card");
-	allCards.forEach(function(card) {
-	// showNum(card)
-		if (dayNum >= card.dataset.card) {
-			card.addEventListener("click", () => {
-					if (!card.classList.contains("show")) {
-			(console.log("clicked"))
-					card.classList.add("show");
-					// if (openCards.length == 2) {
-					// 	// check for match, if matches leave shown
-					// 	if (openCards[0].dataset.card == openCards[1].dataset.card) {
-					// 		openCards[0].classList.add("show");
-					// 		openCards[1].classList.add("show");
-					// 		openCards = [];
-					
-					// 	} 
-					// }
+function addCats() {
+	const allCats = document.querySelectorAll(".card");
+	allCats.forEach(function(cat) {
+    if (dayNum >= cat.dataset.cat) {
+		cat.addEventListener("click", () => {
+				if (!cat.classList.contains("show")) {
+          (console.log("clicked"))
+				  cat.classList.add("show");
 				}
-			});
-		}	
-	});
-}
+		});
 
-function showNum(card) {
-  card.innerHTML = `<p>Image1</p>`
+	});
 }
 
 // show current date
@@ -189,40 +177,6 @@ function showDate() {
 	date.innerHTML = `Today's Date: <div>${months[d.getMonth()]} ${d.getDate()},
 		${d.getFullYear()}</div>`;
 }
-
-//restart button restarts game
-restart.addEventListener("click", () => {
-	stopTime();
-	addCalendar();
-	removeBanner();
-})
-
-function winner() {
-	if (matchedPairs == 8) {
-		finalBanner();
-	}
-}
-
-function finalBanner() {
-	const finalTime = document.getElementsByClassName("final-time")[0];
-	addBanner();
-}
-
-// closes the winner's banner
-function removeBanner() {
-	const banner = document.getElementsByClassName("winner-flag")[0];
-	banner.classList.add("close");
-}
-
-
-
-
-closeBtn.addEventListener("click", () => {
-	removeBanner();
-})
-
-
-
 
 // ___________FALLING SNOW OVERLAY________
 //  * @license
