@@ -137,7 +137,16 @@ function addNums(cat) {
 const catDeck = newDeck(catCards)
 
 function makeDay(card) {
-	return `<p class="card-day-show">${card.day()}</p>`;
+
+	function stripLeadZero(num) {
+		if (num.toString()[0] === '0') {
+			return num.toString()[1]
+		} else {
+			return num
+		}
+	}
+
+	return `<p class="card-day-show">${stripLeadZero(card.day())}</p>`;
 }
 
 function makeCard(card) {
@@ -164,13 +173,13 @@ addCalendar();
 function addCats() {
 	const allCats = document.querySelectorAll(".card");
 	allCats.forEach(function(cat) {
-    if (dayNum >= cat.dataset.card) {
+    // if (dayNum >= cat.dataset.card) {
 		cat.addEventListener("click", () => {
 				if (!cat.classList.contains("show")) {
 				  cat.classList.add("show");
 				}
 		});
-	};
+	// };
 })
 }
 
