@@ -159,10 +159,14 @@ function makeCard(card) {
 function addCalendar() {
 	const deck = document.querySelector(".deck");
 	deck.innerHTML = 'DAY 1'
-	let cardHTML = catDeck.map(function(card) {
-		return makeDay(card) + makeCard(card);
+	let allCardHTML = catDeck.map(function(card) {
+		cardHTML = makeDay(card) + makeCard(card);
+		// if (card.day() % 5 == 0) {
+		// 	// cardHTML += '<br><br>'
+		// }
+		return cardHTML
 	});
-	deck.innerHTML = cardHTML.join("");
+	deck.innerHTML = allCardHTML.join("");
 	addCats();
 	showDate();
 }
