@@ -3,7 +3,7 @@
 
 *About*
 -------
-This app is an open-source, beginner-friendly project 
+This app is an open-source, beginner-friendly project that is welcoming new pull requests!
 
 *Maintainers*
 -------------
