@@ -3,6 +3,8 @@ let d = new Date();
 let gameClock;
 const deck = document.querySelector(".deck");
 
+const dayNum = d.getDate() //change this for demo
+
 // octocat pics go here
 const catCards = [
 	{
@@ -155,17 +157,17 @@ function addCalendar() {
 
 addCalendar();
 
-
 function addCats() {
 	const allCats = document.querySelectorAll(".card");
 	allCats.forEach(function(cat) {
-    // showNum(card)
+    if (dayNum >= cat.dataset.cat) {
 		cat.addEventListener("click", () => {
 				if (!cat.classList.contains("show")) {
           (console.log("clicked"))
 				  cat.classList.add("show");
 				}
 		});
+
 	});
 }
 
