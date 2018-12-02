@@ -127,12 +127,11 @@ function newDeck(catCards) {
     addNums(cat);
 	})
 	return newDeck;
-
 }
 
 function addNums(cat) {
   console.log("day number")
-  cat.innerText = "hello"
+  cat.innerHTML = "hello"
 }
 
 const catDeck = newDeck(catCards)
@@ -165,21 +164,10 @@ function addCats() {
 				if (!cat.classList.contains("show")) {
           (console.log("clicked"))
 				  cat.classList.add("show");
-				// if (openCards.length == 2) {
-				// 	// check for match, if matches leave shown
-				// 	if (openCards[0].dataset.cat == openCards[1].dataset.cat) {
-				// 		openCards[0].classList.add("show");
-				// 		openCards[1].classList.add("show");
-						// openCards = [];
-				
-					} 
-				})
-			})
+				}
+		});
+	});
 }
-
-// function showNum(card) {
-//   card.innerHTML = `<p>Image1</p>`
-// }
 
 // show current date
 function showDate() {
