@@ -1,9 +1,7 @@
 const date = document.querySelector(".date");
 let d = new Date();
-let gameClock;
 const deck = document.querySelector(".deck");
-
-const dayNum = d.getDate() //change this for demo
+const dayNum = d.getDate()
 
 // octocat pics go here
 const catCards = [
@@ -132,7 +130,7 @@ function newDeck(catCards) {
 }
 
 function addNums(cat) {
-  console.log("day number")
+  console.log("cat")
   cat.innerHTML = "hello"
 }
 
@@ -157,6 +155,7 @@ function addCalendar() {
 
 addCalendar();
 
+// Show cat when clicked; days ahead of current day will not show on click
 function addCats() {
 	const allCats = document.querySelectorAll(".card");
 	allCats.forEach(function(cat) {
