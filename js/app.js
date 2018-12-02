@@ -160,14 +160,13 @@ addCalendar();
 function addCats() {
 	const allCats = document.querySelectorAll(".card");
 	allCats.forEach(function(cat) {
-    if (dayNum >= cat.dataset.card) {
+    // if (dayNum >= cat.dataset.card) {
 		cat.addEventListener("click", () => {
 				if (!cat.classList.contains("show")) {
-          (console.log("clicked"))
 				  cat.classList.add("show");
 				}
 		});
-	};
+	// };
 })
 }
 
@@ -224,7 +223,7 @@ var snowStorm = (function(window, document) {
   this.flakeHeight = 8;           // Max pixel height reserved for snow element
   this.vMaxX = 5;                 // Maximum X velocity range for snow
   this.vMaxY = 4;                 // Maximum Y velocity range for snow
-  this.zIndex = 0;                // CSS stacking order applied to each snowflake
+  this.zIndex = 1;                // CSS stacking order applied to each snowflake
 
   // --- "No user-serviceable parts inside" past this point, yadda yadda ---
 
