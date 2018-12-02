@@ -137,7 +137,16 @@ function addNums(cat) {
 const catDeck = newDeck(catCards)
 
 function makeDay(card) {
-	return `<p class="card-day-show">${card.day()}</p>`;
+
+	function stripLeadZero(num) {
+		if (num.toString()[0] === '0') {
+			return num.toString()[1]
+		} else {
+			return num
+		}
+	}
+
+	return `<p class="card-day-show">${stripLeadZero(card.day())}</p>`;
 }
 
 function makeCard(card) {
