@@ -138,6 +138,10 @@ function addNums(cat) {
 
 const catDeck = newDeck(catCards)
 
+function makeDay(card) {
+	return `<p class="card-day-show">${card.day()}</p>`;
+}
+
 function makeCard(card) {
 	return `<li class="card" data-card="${card.day()}">
             <img src="${card.relLink}" height="125" width="125" 
@@ -147,8 +151,9 @@ function makeCard(card) {
 
 function addCalendar() {
 	const deck = document.querySelector(".deck");
+	deck.innerHTML = 'DAY 1'
 	let cardHTML = catDeck.map(function(card) {
-		return makeCard(card);
+		return makeDay(card) + makeCard(card);
 	});
 	deck.innerHTML = cardHTML.join("");
 	addCats();
@@ -160,13 +165,13 @@ addCalendar();
 function addCats() {
 	const allCats = document.querySelectorAll(".card");
 	allCats.forEach(function(cat) {
-    // if (dayNum >= cat.dataset.card) {
+    if (dayNum >= cat.dataset.card) {
 		cat.addEventListener("click", () => {
 				if (!cat.classList.contains("show")) {
 				  cat.classList.add("show");
 				}
 		});
-	// };
+	};
 })
 }
 
