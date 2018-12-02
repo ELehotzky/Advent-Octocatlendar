@@ -10,7 +10,8 @@ This app was created by Erica Lehotzky (@ELehotzky), Kelly Lwakatare (@kells08),
 
 *Dependencies*
 --------------
-Built with JavaScript, HTML, and CSS
+Built with JavaScript, HTML, and CSS.
+Octocat images pulled from https://octodex.github.com/ - artist credits in image tags.
 
 *Challenges we ran into*
 ------------------------
