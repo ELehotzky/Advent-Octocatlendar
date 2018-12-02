@@ -83,8 +83,32 @@ img {
     opacity: 1;
 }
 
+.card-day-show {
+    color: white;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+.deck .day .card {
+    border-color: white;
+    border-width: 10px;
+    opacity: 0;
+    height: 125px;
+    width: 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+}
+
 .date-panel {
     text-align: center;
     width: 30%;
     margin-bottom: 10px;
+}
+
+.day {
+    width: 50%;
 }
