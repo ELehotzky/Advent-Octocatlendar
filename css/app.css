@@ -7,6 +7,7 @@ html {
 *::before,
 *::after {
     box-sizing: inherit;
+    color: rgb(5, 47, 77);
 }
 
 html,
@@ -18,8 +19,10 @@ body {
 }
 
 body {
-    background: rgb(165, 202, 245)  
-    url('../img/christmas1_5.mp4'); 
+    background: rgb(77, 144, 165)  
+    url('../img/snowflakes_background.jpg')no-repeat center center fixed;
+    background-size: cover;
+    height: 100%; 
     font-family: 'Mountains of Christmas', cursive;
 }
 
@@ -73,12 +76,13 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #fff;
 }
 
-.deck .card.open {
+/* .deck .card.open {
     transform: rotateY(0);
     cursor: default;
-}
+} */
 
 .deck .card.show {
     opacity: 1;
