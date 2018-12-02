@@ -173,13 +173,13 @@ addCalendar();
 function addCats() {
 	const allCats = document.querySelectorAll(".card");
 	allCats.forEach(function(cat) {
-    // if (dayNum >= cat.dataset.card) {
+    if (dayNum >= cat.dataset.card) {
 		cat.addEventListener("click", () => {
 				if (!cat.classList.contains("show")) {
 				  cat.classList.add("show");
 				}
 		});
-	// };
+	};
 })
 }
 
