@@ -160,15 +160,15 @@ addCalendar();
 function addCats() {
 	const allCats = document.querySelectorAll(".card");
 	allCats.forEach(function(cat) {
-    if (dayNum >= cat.dataset.cat) {
+    if (dayNum >= cat.dataset.card) {
 		cat.addEventListener("click", () => {
 				if (!cat.classList.contains("show")) {
           (console.log("clicked"))
 				  cat.classList.add("show");
 				}
 		});
-
-	});
+	};
+})
 }
 
 // show current date
